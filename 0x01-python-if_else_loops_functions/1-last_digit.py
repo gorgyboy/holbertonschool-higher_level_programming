@@ -10,4 +10,4 @@ if number >= 0:
     else:
         print("{:d} and is less than 6 and not 0".format(number % 10))
 else:
-    print("-{:d} and is less than 6 and not 0".format(-number % 10))
+    print("{:d} and is less than 6 and not 0".format(-(-number % 10)))

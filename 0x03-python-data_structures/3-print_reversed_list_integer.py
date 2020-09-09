@@ -2,9 +2,7 @@
 
 
 def print_reversed_list_integer(my_list=[]):
-    if not my_list:
-        pass
-    else:
+    if my_list is not None:
         my_list.reverse()
-        for i in tmp_list:
+        for i in my_list:
             print("{:d}".format(i))

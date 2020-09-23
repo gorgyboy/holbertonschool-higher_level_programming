@@ -11,7 +11,7 @@ class Square:
 
         Args:
             size (int): Size to create the square, defautls to 0.
-            position (tuple, int): Cordinates to create the square, 
+            position (tuple, int): Cordinates to create the square,
                 defaults to (0,0).
 
         Attributes:
@@ -69,7 +69,7 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """Prints the square to stdout represented by '#' 
+        """Prints the square to stdout represented by '#'
             taking position into account."""
         if self.size:
             for pos_y in range(self.position[1]):

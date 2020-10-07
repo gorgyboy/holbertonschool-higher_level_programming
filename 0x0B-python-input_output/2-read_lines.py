@@ -7,7 +7,7 @@ def read_lines(filename="", nb_lines=0):
         OR greater or equal to the total number of lines of the file.
     '''
 
-    with open(filename, 'r') as f:
+    with open(filename, mode='r', encoding='utf-8') as f:
         lines = list(f)
         if nb_lines <= 0 or nb_lines >= len(lines):
             for i in range(len(lines)):

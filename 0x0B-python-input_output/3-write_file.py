@@ -6,5 +6,5 @@ def write_file(filename="", text=""):
         characters written.
     '''
 
-    with open(filename, 'w') as f:
+    with open(filename, mode='w', encoding='utf-8') as f:
         return f.write(text)

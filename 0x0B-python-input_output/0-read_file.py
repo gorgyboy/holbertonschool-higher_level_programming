@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def read_file(filename=""):
     ''' Reads data from file 'filename' '''
 

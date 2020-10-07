@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' I/O module '''
 
 
 def write_file(filename="", text=""):

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' I/O module '''
 
 
 def read_file(filename=""):

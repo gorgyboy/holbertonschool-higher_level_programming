@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' I/O module '''
 
 
 def number_of_lines(filename=""):

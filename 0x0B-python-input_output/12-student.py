@@ -19,13 +19,11 @@ class Student():
             retrieved
         '''
 
-        if attrs and isinstance(attrs, list) \
-        and all(isinstance(a, str) for a in attrs):
-            d_list = self.__dict__
-            d_attrs = dict()
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            attrs_dict = {}
             for key in attrs:
-                if key in d_list:
-                    d_attrs[key] = d_list[key]
-            return d_attrs
+                if key in self.__dict__:
+                    attrs_dict[key] = self.__dict__[key]
+            return attrs_dict
         else:
             return self.__dict__

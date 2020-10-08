@@ -19,7 +19,8 @@ class Student():
             retrieved
         '''
 
-        if attrs:
+        if attrs and isinstance(attrs, list) \
+        and all(isinstance(a, str) for a in attrs):
             d_list = self.__dict__
             d_attrs = dict()
             for key in attrs:

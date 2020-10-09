@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' 0x0A-python-inheritance module '''
 
-
 BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     ''' Rectangle class that inherits from BaseGeometry class '''

@@ -100,3 +100,22 @@ class Rectangle(Base):
     def __str__(self):
         return '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(self.id,
                 self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """ Update instance attributes, receiving *args as id, width,
+            height, x and y.
+        """
+        if args:
+            index = 0
+            for arg in args:
+                if index == 0:
+                    self.id = arg
+                elif index == 1:
+                    self.width = arg
+                elif index == 2:
+                    self.height = arg
+                elif index == 3:
+                    self.x = arg
+                elif index == 4:
+                    self.y = arg
+                index += 1

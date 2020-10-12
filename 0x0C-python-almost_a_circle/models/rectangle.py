@@ -101,9 +101,9 @@ class Rectangle(Base):
         return '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(self.id,
                 self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Update instance attributes, receiving *args as id, width,
-            height, x and y.
+            height, x and y. **kwargs is only used if *args is empty.
         """
         if args:
             index = 0
@@ -119,3 +119,7 @@ class Rectangle(Base):
                 elif index == 4:
                     self.y = arg
                 index += 1
+        else:
+            print(kwargs)
+            for key, value in kwargs.items():
+                setattr(self, key, value)

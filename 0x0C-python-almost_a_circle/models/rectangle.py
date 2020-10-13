@@ -120,6 +120,10 @@ class Rectangle(Base):
                     self.y = arg
                 index += 1
         else:
-            print(kwargs)
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Returns the dictionary representation of the instance. """
+        return {'id': self.id, 'width': self.width, 'height': self.height,
+                'x': self.x, 'y': self.y}

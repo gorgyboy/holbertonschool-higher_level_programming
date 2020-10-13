@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ Models module """
 
+from json import dumps
+
 
 class Base:
     """ Base class for future classes in the module.
@@ -25,3 +27,14 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """ Returns the JSON string representation of list_dictionaries.
+            Attributes:
+                list_dictionaries (list, dict): List of dictionaries to export
+                                                to JSON string.
+        """
+        if list_dictionaries:
+            return dumps(list_dictionaries)
+        else:
+            return '"[]"'

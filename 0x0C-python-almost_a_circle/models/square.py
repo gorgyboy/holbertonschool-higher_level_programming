@@ -10,11 +10,11 @@ class Square(Rectangle):
         """ Initializes the instance.
 
             Attributes:
-                __size (int):   Size of the instance.
-                __x (int):      x axis position of the instance.
-                __y (int):      y axis position of the instance.
-                id (int):       Instance id. If None,  _base.__nb_objects will
-                                be increased and used as id.
+                size (int): Size of the instance, which is width and height.
+                x (int):    x axis position of the instance.
+                y (int):    y axis position of the instance.
+                id (int):   Instance id. If None,  _base.__nb_objects will
+                            be increased and used as id.
         """
         super().__init__(size, size, x, y, id)
 
@@ -38,3 +38,24 @@ class Square(Rectangle):
     def __str__(self):
         return '[Square] ({:d}) {:d}/{:d} - {:d}'.format(self.id,
                 self.x, self.y, self.width)
+
+    def update(self, *args, **kwargs):
+        """ Update instance attributes, receiving *args as id, size, x and y.
+            **kwargs is only used if *args is empty.
+        """
+        if args:
+            index = 0
+            for arg in args:
+                if index == 0:
+                    self.id = arg
+                elif index == 1:
+                    self.size = arg
+                elif index == 2:
+                    self.x = arg
+                elif index == 3:
+                    self.y = arg
+                index += 1
+        else:
+            print(kwargs)
+            for key, value in kwargs.items():
+                setattr(self, key, value)

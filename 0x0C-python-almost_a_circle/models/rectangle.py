@@ -15,7 +15,7 @@ class Rectangle(Base):
                 __height (int): Height of the instance.
                 __x (int):      x axis position of the instance.
                 __y (int):      y axis position of the instance.
-                id (int):       Instance id. If None, _base.__nb_objects will
+                id (int):       Instance id. If None, _Base.__nb_objects will
                                 be increased and used as id.
         """
         self.width = width

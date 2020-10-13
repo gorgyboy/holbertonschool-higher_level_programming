@@ -13,7 +13,7 @@ class Square(Rectangle):
                 size (int): Size of the instance, which is width and height.
                 x (int):    x axis position of the instance.
                 y (int):    y axis position of the instance.
-                id (int):   Instance id. If None,  _base.__nb_objects will
+                id (int):   Instance id. If None,  _Base.__nb_objects will
                             be increased and used as id.
         """
         super().__init__(size, size, x, y, id)

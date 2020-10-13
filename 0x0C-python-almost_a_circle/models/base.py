@@ -61,10 +61,23 @@ class Base:
                 list_objs (list): List of instances who inherits of Base.
         """
         with open(cls.__name__ + '.json', 'w', encoding='utf-8') as f:
-            dic = []
+            list_dicts = []
             for obj in list_objs:
-                dic.append(obj.to_dictionary())
-            f.write(Base.to_json_string(dic))
+                list_dicts.append(obj.to_dictionary())
+            f.write(Base.to_json_string(list_dicts))
+
+    @classmethod
+    def load_from_file(cls):
+        """ Returns a list of instances from <cls.__name__>.json file. """
+        try:
+            with open(cls.__name__ + '.json', 'r', encoding='utf-8') as f:
+                list_inst = []
+                list_dicts = cls.from_json_string(f.read())
+                for dic in list_dicts:
+                    list_inst.append(cls.create(**dic))
+                return list_inst
+        except FileNotFoundError:
+            return []
 
     @classmethod
     def create(cls, **dictionary):

@@ -65,3 +65,15 @@ class Base:
             for obj in list_objs:
                 dic.append(obj.to_dictionary())
             f.write(Base.to_json_string(dic))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns an instance with all attributes already set.
+
+                Attributes:
+                    **dictionary (dict): Dictionary with the values of the
+                                       instance to be created.
+        """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy

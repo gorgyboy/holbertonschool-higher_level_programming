@@ -2,6 +2,7 @@
 """ Models module """
 
 from json import dumps, loads
+from csv import writer, reader
 
 
 class Base:
@@ -71,11 +72,11 @@ class Base:
         """ Returns a list of instances from <cls.__name__>.json file. """
         try:
             with open(cls.__name__ + '.json', 'r', encoding='utf-8') as f:
-                list_inst = []
+                list_insts = []
                 list_dicts = cls.from_json_string(f.read())
                 for dic in list_dicts:
-                    list_inst.append(cls.create(**dic))
-                return list_inst
+                    list_insts.append(cls.create(**dic))
+                return list_insts
         except FileNotFoundError:
             return []
 
@@ -90,3 +91,47 @@ class Base:
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Writes the CSV string representation of list_objs to a file.
+
+            Attributes:
+                list_objs (list): List of instances who inherits of Base.
+        """
+        with open(cls.__name__ + '.csv', 'w', encoding='utf-8',
+                  newline='') as csv_f:
+            csv_writer = writer(csv_f)
+            if cls.__name__ is 'Rectangle':
+                fields = ['id', 'width', 'height', 'x', 'y']
+            else:
+                fields = ['id', 'size', 'x', 'y']
+            values = []
+            for obj in list_objs:
+                obj_attrs = []
+                for attr in fields:
+                    obj_attrs.append(getattr(obj, attr))
+                values.append(obj_attrs)
+            csv_writer.writerow(fields)
+            csv_writer.writerows(values)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Returns a list of instances from <cls.__name__>.csv file. """
+        try:
+            with open(cls.__name__ + '.csv', 'r', encoding='utf-8',
+                      newline='') as csv_f:
+                csv_reader = reader(csv_f)
+                fields = next(csv_reader)
+                values = []
+                for line in csv_reader:
+                    values.append([int(attr) for attr in line])
+                list_dicts = []
+                for index in range(len(values)):
+                    list_dicts.append(dict(zip(fields, values[index])))
+                list_insts = []
+                for dic in list_dicts:
+                    list_insts.append(cls.create(**dic))
+                return list_insts
+        except FileNotFoundError:
+            return []

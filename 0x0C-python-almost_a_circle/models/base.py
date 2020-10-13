@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Models module """
 
-from json import dumps
+from json import dumps, loads
 
 
 class Base:
@@ -40,6 +40,18 @@ class Base:
             return dumps(list_dictionaries)
         else:
             return '"[]"'
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Returns the list of the JSON string representation json_string.
+
+            Attributes:
+                json_string (str): String representing a list of dictionaries.
+        """
+        if json_string:
+            return loads(json_string)
+        else:
+            return []
 
     @classmethod
     def save_to_file(cls, list_objs):

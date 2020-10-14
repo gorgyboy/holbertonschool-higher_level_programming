@@ -98,33 +98,39 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        return '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'.format(
-                    self.id, self.x, self.y, self.width, self.height
-                )
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id, self.x, self.y,
+                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """ Update instance attributes, receiving *args as id, width,
             height, x and y. **kwargs is only used if *args is empty.
         """
         if args:
-            index = 0
-            for arg in args:
+            for index in range(len(args)):
                 if index == 0:
-                    self.id = arg
+                    self.id = args[index]
                 elif index == 1:
-                    self.width = arg
+                    self.width = args[index]
                 elif index == 2:
-                    self.height = arg
+                    self.height = args[index]
                 elif index == 3:
-                    self.x = arg
+                    self.x = args[index]
                 elif index == 4:
-                    self.y = arg
-                index += 1
+                    self.y = args[index]
         else:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """ Returns the dictionary representation of the instance. """
-        return {'id': self.id, 'width': self.width, 'height': self.height,
-                'x': self.x, 'y': self.y}
+        return {"id": self.id, "width": self.width, "height": self.height,
+                "x": self.x, "y": self.y}

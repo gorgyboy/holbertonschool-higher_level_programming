@@ -16,7 +16,6 @@ class Square(Rectangle):
                 id (int):   Instance id. If None,  _Base.__nb_objects will
                             be increased and used as id.
         """
-        self.size = size
         super().__init__(size, size, x, y, id)
 
     @property
@@ -33,26 +32,23 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-        return '[Square] ({:d}) {:d}/{:d} - {:d}'.format(
-                    self.id, self.x, self.y, self.width
-                )
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
 
     def update(self, *args, **kwargs):
         """ Update instance attributes, receiving *args as id, size, x and y.
             **kwargs is only used if *args is empty.
         """
         if args:
-            index = 0
-            for arg in args:
+            for index in range(len(args)):
                 if index == 0:
-                    self.id = arg
+                    self.id = args[index]
                 elif index == 1:
-                    self.size = arg
+                    self.size = args[index]
                 elif index == 2:
-                    self.x = arg
+                    self.x = args[index]
                 elif index == 3:
-                    self.y = arg
-                index += 1
+                    self.y = args[index]
         else:
             for key, value in kwargs.items():
                 if key == "id":
@@ -66,4 +62,4 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """ Returns the dictionary representation of the instance. """
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}

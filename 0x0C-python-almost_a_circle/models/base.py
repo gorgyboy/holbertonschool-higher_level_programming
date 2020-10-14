@@ -3,6 +3,8 @@
 
 from json import dumps, loads
 from csv import writer, reader
+import turtle
+from random import randint
 
 
 class Base:
@@ -135,3 +137,42 @@ class Base:
                 return list_insts
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Opens a window and draws all the Rectangles and Squares.
+
+            Attributes:
+                list_rectangles (list, Rectangle): List of rectangles.
+                list_squares (list, Square):       List of squares.
+        """
+        scr = turtle.Screen()
+        scr.title("0x0C. Python - Almost a circle - 21. Let's draw it " +
+                  "#advanced")
+        turtle.mode("logo")
+        turtle.colormode(255)
+        pen = turtle.Turtle()
+        pen.speed(2)
+        for rect in list_rectangles:
+            pen.goto(rect.x, rect.y)
+            pen.down()
+            pen.color(randint(0, 255), randint(0, 255), randint(0, 255))
+            pen.begin_fill()
+            for i in range(2):
+                pen.forward(rect.height)
+                pen.right(90)
+                pen.forward(rect.width)
+                pen.right(90)
+            pen.end_fill()
+            pen.up()
+        for sqr in list_squares:
+            pen.goto(sqr.x, sqr.y)
+            pen.down()
+            pen.color(randint(0, 255), randint(0, 255), randint(0, 255))
+            pen.begin_fill()
+            for i in range(4):
+                pen.forward(sqr.size)
+                pen.right(90)
+            pen.end_fill()
+            pen.up()
+        scr.exitonclick()

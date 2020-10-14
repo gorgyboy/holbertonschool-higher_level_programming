@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Models module """
 
+import turtle
 from json import dumps, loads
 from csv import writer, reader
-import turtle
 from random import randint
 
 
@@ -39,10 +39,9 @@ class Base:
                 list_dictionaries (list, dict): List of dictionaries to export
                                                 to JSON string.
         """
-        if list_dictionaries:
-            return dumps(list_dictionaries)
-        else:
-            return '"[]"'
+        if not list_dictionaries:
+            list_dictionaries = []
+        return dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
@@ -51,10 +50,9 @@ class Base:
             Attributes:
                 json_string (str): String representing a list of dictionaries.
         """
-        if json_string:
-            return loads(json_string)
-        else:
-            return []
+        if not json_string:
+            json_string = "[]"
+        return loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -88,9 +86,12 @@ class Base:
 
                 Attributes:
                     **dictionary (dict): Dictionary with the values of the
-                                       instance to be created.
+                                         instance to be created.
         """
-        dummy = cls(1, 1)
+        if cls.__name__ is "Rectangle":
+            dummy = cls(1, 1)
+        else:
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 

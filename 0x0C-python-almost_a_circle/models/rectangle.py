@@ -33,7 +33,7 @@ class Rectangle(Base):
     def width(self, value):
         """ Verifies that value is int and greater than 0. """
         if type(value) is not int:
-            raise TypeError('width must be integer')
+            raise TypeError('width must be an integer')
         if value <= 0:
             raise ValueError('width must be > 0')
         self.__width = value
@@ -47,7 +47,7 @@ class Rectangle(Base):
     def height(self, value):
         """ Verifies that value is int and greater than 0. """
         if type(value) is not int:
-            raise TypeError('height must be integer')
+            raise TypeError('height must be an integer')
         if value <= 0:
             raise ValueError('height must be > 0')
         self.__height = value
@@ -61,7 +61,7 @@ class Rectangle(Base):
     def x(self, value):
         """ Verifies that value is int and not less than 0. """
         if type(value) is not int:
-            raise TypeError('x must be integer')
+            raise TypeError('x must be an integer')
         if value < 0:
             raise ValueError('x must be >= 0')
         self.__x = value
@@ -75,14 +75,14 @@ class Rectangle(Base):
     def y(self, value):
         """ Verifies that value is int and not less than 0. """
         if type(value) is not int:
-            raise TypeError('y must be integer')
+            raise TypeError('y must be an integer')
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
 
     def area(self):
         """ Returns the area value of the instance. """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def display(self):
         """ Prints in stdout the instance with the character #
@@ -134,3 +134,28 @@ class Rectangle(Base):
         """ Returns the dictionary representation of the instance. """
         return {"id": self.id, "width": self.width, "height": self.height,
                 "x": self.x, "y": self.y}
+
+
+
+try:
+    Rectangle(10, "2")
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    r = Rectangle(10, 2)
+    r.width = -10
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    r = Rectangle(10, 2)
+    r.x = {}
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    Rectangle(10, 2, 3, -1)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+

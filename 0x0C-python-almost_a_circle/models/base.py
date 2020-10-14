@@ -65,7 +65,7 @@ class Base:
             list_dicts = []
             for obj in list_objs:
                 list_dicts.append(obj.to_dictionary())
-            f.write(Base.to_json_string(list_dicts))
+            f.write(cls.to_json_string(list_dicts))
 
     @classmethod
     def load_from_file(cls):

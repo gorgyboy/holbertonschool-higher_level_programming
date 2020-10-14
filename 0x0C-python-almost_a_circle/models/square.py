@@ -16,6 +16,7 @@ class Square(Rectangle):
                 id (int):   Instance id. If None,  _Base.__nb_objects will
                             be increased and used as id.
         """
+        self.size = size
         super().__init__(size, size, x, y, id)
 
     @property
@@ -28,10 +29,6 @@ class Square(Rectangle):
         """ Verifies that value is int and greater than 0
             and assign it to width and height.
         """
-        if type(value) is not int:
-            raise TypeError('width must be integer')
-        if value < 1:
-            raise ValueError('width must be > 0')
         self.width = value
         self.height = value
 
@@ -58,7 +55,14 @@ class Square(Rectangle):
                 index += 1
         else:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key == "id":
+                    self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """ Returns the dictionary representation of the instance. """

@@ -1,19 +1,60 @@
+=============================
+DOCTEST MODUULE 0-add_integer
+=============================
+
+
+=====================
+Importing the method:
+=====================
+
 >>> add_integer = __import__('0-add_integer').add_integer
+
+
+===========================
+Testing integer and floats:
+===========================
+
 >>> print(add_integer(1, 2))
 3
->>> print(add_integer(100, -2))
-98
+
+>>> print(add_integer(-4, -2))
+-6
+
 >>> print(add_integer(2))
 100
+
 >>> print(add_integer(100.3, -2))
 98
+
 >>> print(add_integer(7.5, 7.5))
 14
+
+
+================================================
+Testing with different types than int and float:
+================================================
+
 >>> print(add_integer(4, "School"))
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
+
 >>> print(add_integer(None))
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+
+
+===============================
+Testing float overflow and NaN:
+===============================
+
+>>> add_integer(4, float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('NaN'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer

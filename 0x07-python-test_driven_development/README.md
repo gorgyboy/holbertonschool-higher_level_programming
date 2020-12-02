@@ -5,22 +5,22 @@
 <div id="project_id" style="display: none" data-project-id="246"></div>
 
 <p class="sm-gap">
-  <small>
-    <i class="fa fa-folder-open"></i>
-    Foundations - Higher-level programming ― Python
-  </small>
+<small>
+<i class="fa fa-folder-open"></i>
+Foundations - Higher-level programming ― Python
+</small>
 </p>
 
-  <p>
-    <em>
-      <small>
-        <i class="fa fa-user"></i> by Guillaume, CTO at Holberton School
-      </small>
-    </em>
-  </p>
+<p>
+<em>
+<small>
+<i class="fa fa-user"></i> by Guillaume, CTO at Holberton School
+</small>
+</em>
+</p>
 
-  <article id="description" class="gap formatted-content">
-    <p><img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/246/giphy-4.gif" alt="" style="" /></p>
+<article id="description" class="gap formatted-content">
+<p><img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/246/giphy-4.gif" alt="" style="" /></p>
 
 <h2>Background Context</h2>
 

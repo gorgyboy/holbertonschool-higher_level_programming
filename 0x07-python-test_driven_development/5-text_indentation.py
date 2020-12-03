@@ -13,13 +13,13 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError('text must be a string')
 
-    indentation = False
-    for char in text:
-        if char in ('.', '?', ':'):
-            print(char + '\n')
-            indentation = True
+    idx = 0
+    while idx < len(text):
+        if text[idx] in ('.', '?', ':'):
+            print(text[idx] + '\n')
+            idx += 1
+            while idx < len(text) and text[idx] == ' ':
+                idx += 1
         else:
-            if indentation is True:
-                indentation = False
-            else:
-                print(char, end='')
+            print(text[idx], end='')
+            idx += 1

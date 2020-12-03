@@ -1,0 +1,38 @@
+==============================
+DOCTEST MODUULE 4-print_square
+==============================
+
+Import method
+
+::
+    >>> print_square = __import__('4-print_square').print_square
+
+
+Test that method works:
+
+::
+    >>> print_square(2)
+    ##
+    ##
+
+    >>> print_square(1)
+    #
+
+
+Test missing and wrong type arguments:
+
+::
+    >>> print_square("White")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    >>> print_square(-1)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be >= 0
+
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'size'

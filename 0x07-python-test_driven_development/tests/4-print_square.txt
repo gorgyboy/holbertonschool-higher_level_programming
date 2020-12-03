@@ -2,13 +2,13 @@
 DOCTEST MODUULE 4-print_square
 ==============================
 
-Import method
+Import the method
 
 ::
     >>> print_square = __import__('4-print_square').print_square
 
 
-Test that method works:
+Test that the method works:
 
 ::
     >>> print_square(2)
@@ -22,6 +22,11 @@ Test that method works:
 Test missing and wrong type arguments:
 
 ::
+    >>> print_square(3.141592)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
     >>> print_square("White")
     Traceback (most recent call last):
         ...
@@ -35,4 +40,4 @@ Test missing and wrong type arguments:
     >>> print_square()
     Traceback (most recent call last):
         ...
-    TypeError: say_my_name() missing 1 required positional argument: 'size'
+    TypeError: print_square() missing 1 required positional argument: 'size'

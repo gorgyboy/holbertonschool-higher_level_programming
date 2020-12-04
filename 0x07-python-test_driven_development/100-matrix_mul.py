@@ -50,7 +50,7 @@ def matrix_mul(m_a, m_b):
         for col in range(len(m_b[0])):  # cols in res_matrix
             res_value = 0
             # itare in the same row/col
-            for pos in range(len(m_b[0])):
+            for pos in range(len(m_a[0])):
                 # multiply and add values to res_list
                 res_value += (m_a[row][pos] * m_b[pos][col])
             res_list.append(res_value)

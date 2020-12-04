@@ -1,0 +1,70 @@
+DOCTEST MODULE FOR 100-matrix_mul
+
+Import function:
+
+::
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Test that function works as intended:
+
+::
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13, 16]]
+
+Test args are list of list:
+
+::
+    >>> print(matrix_mul(2, [[3, 4]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+    >>> print(matrix_mul([[1, 2], [3, 4]], [1, 2, 3]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
+
+Test empty list:
+
+::
+    >>> print(matrix_mul([[], [3, 4]], [[1, 2, 3]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+Test wrong type args:
+
+::
+    >>> print(matrix_mul([["a", "b"], [3, 4]], [[1, 2, 3]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+Test wrong sized args:
+
+::
+    >>> print(matrix_mul([[1, 2]], [[3], [5, 6]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6], [7, 8]]))
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
+
+Test missing args:
+
+::
+    >>> print(matrix_mul([[1,2]]))
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+    >>> print(matrix_mul())
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'

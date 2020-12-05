@@ -135,5 +135,3 @@ class Rectangle():
         """
 
         return cls(size, size)
-
-

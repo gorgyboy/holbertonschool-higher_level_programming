@@ -19,8 +19,9 @@ def my_safe_filter_states():
                                user=argv[1], passwd=argv[2], db=argv[3],
                                charset="utf8")
         cur = conn.cursor()
-        cur.execute("SELECT * FROM states WHERE name LIKE '" +
-                    argv[4] + "' ORDER BY id ASC")
+        str1 = "SELECT * FROM states WHERE name LIKE '"
+        str2 = "' ORDER BY id ASC"
+        cur.execute("{}{}{}".format(str1, argv[4], str2))
         query_rows = cur.fetchall()
         for row in query_rows:
             print(row)

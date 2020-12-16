@@ -2,7 +2,7 @@
 """
 PYTHON OBJECT RELATIONAL MAPPING MODULE
 
-model_city_fetch_by_state module provides function to get all cities from 
+model_city_fetch_by_state module provides function to get all cities from
 cities table in the DB.
 """
 

@@ -15,6 +15,7 @@ from sqlalchemy.orm import sessionmaker
 def model_state_update_id_2():
     """
     changes the name of a State object where id = 2 from the database.
+
     Takes 3 arguments: mysql username, mysql password and database name.
     """
 

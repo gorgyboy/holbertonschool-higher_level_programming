@@ -2,7 +2,7 @@
 """
 PYTHON OBJECT RELATIONAL MAPPING MODULE
 
-Model_State_Fetch_First module provides function to get the first state from 
+Model_State_Fetch_First module provides function to get the first state from
 states table in the DB.
 """
 

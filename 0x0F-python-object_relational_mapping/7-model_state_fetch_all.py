@@ -30,6 +30,8 @@ def model_state_fetch_all():
     for row in session.query(State).order_by(State.id.asc()):
         print('{}: {}'.format(row.id, row.name))
 
+    session.close()
+
 
 if __name__ == "__main__":
     model_state_fetch_all()

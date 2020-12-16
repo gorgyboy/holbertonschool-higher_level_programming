@@ -31,6 +31,8 @@ def model_state_delete_a():
                                 ).delete(synchronize_session=False)
     session.commit()
 
+    session.close()
+
 
 if __name__ == "__main__":
     model_state_delete_a()

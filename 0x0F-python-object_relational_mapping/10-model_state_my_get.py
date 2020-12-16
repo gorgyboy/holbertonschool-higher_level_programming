@@ -34,6 +34,8 @@ def model_state_my_get():
     else:
         print(row.id)
 
+    session.close()
+
 
 if __name__ == "__main__":
     model_state_my_get()

@@ -31,6 +31,8 @@ def model_state_insert():
     session.commit()
     print(new_state.id)
 
+    session.close()
+
 
 if __name__ == "__main__":
     model_state_insert()

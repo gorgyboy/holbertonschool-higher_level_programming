@@ -29,6 +29,8 @@ def model_state_update_id_2():
     session.query(State).filter(State.id == 2).update({"name": "New Mexico"})
     session.commit()
 
+    session.close()
+
 
 if __name__ == "__main__":
     model_state_update_id_2()

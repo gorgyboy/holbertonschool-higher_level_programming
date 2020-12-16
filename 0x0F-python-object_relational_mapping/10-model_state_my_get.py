@@ -29,7 +29,7 @@ def model_state_my_get():
 
     row = session.query(State.id).filter(
         text("name LIKE BINARY :name").bindparams(name=sys.argv[4])).first()
-    if row == None:
+    if row is None:
         print('Not found')
     else:
         print(row.id)

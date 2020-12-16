@@ -18,9 +18,9 @@ def filter_cities():
                            user=argv[1], passwd=argv[2], db=argv[3],
                            charset="utf8")
     cur = conn.cursor()
-    cur.execute("SELECT name FROM cities WHERE state_id = (" +
-                "SELECT id FROM states " +
-                "WHERE name LIKE %s" +
+    cur.execute("SELECT name FROM cities WHERE state_id = ("
+                "SELECT id FROM states "
+                "WHERE name LIKE %s"
                 ") ORDER BY id ASC", (argv[4], ))
     query_rows = cur.fetchall()
     for i in range(len(query_rows)):

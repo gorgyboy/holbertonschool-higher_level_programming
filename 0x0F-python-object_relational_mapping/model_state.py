@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 MODEL_STATE MODULE
+
 Provides the class and methods to interact with the states table in the DB.
 """
 from sqlalchemy import Column, Integer, String

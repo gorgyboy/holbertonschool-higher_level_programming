@@ -14,19 +14,18 @@ def my_safe_filter_states():
     state name searched.
     """
 
-    if len(argv[4].split()) == 1:
-        conn = MySQLdb.connect(host="localhost", port=3306,
-                               user=argv[1], passwd=argv[2], db=argv[3],
-                               charset="utf8")
-        cur = conn.cursor()
-        str1 = "SELECT * FROM states WHERE name LIKE '"
-        str2 = "' ORDER BY id ASC"
-        cur.execute("{}{}{}".format(str1, argv[4], str2))
-        query_rows = cur.fetchall()
-        for row in query_rows:
-            print(row)
-        cur.close()
-        conn.close()
+    conn = MySQLdb.connect(host="localhost", port=3306,
+                           user=argv[1], passwd=argv[2], db=argv[3],
+                           charset="utf8")
+    cur = conn.cursor()
+    str1 = "SELECT * FROM states WHERE name LIKE"
+    str2 = "ORDER BY id ASC"
+    cur.execute("{} %s {}".format(str1, str2), (argv[4], ))
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        print(row)
+    cur.close()
+    conn.close()
 
 
 if __name__ == "__main__":

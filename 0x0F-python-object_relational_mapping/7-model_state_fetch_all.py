@@ -14,7 +14,7 @@ from sqlalchemy.orm import sessionmaker
 
 def model_state_fetch_all():
     """
-    Lists all State objects from the database and show results sorted in 
+    Lists all State objects from the database and show results sorted in
     ascending order by states.id.
 
     Takes 3 arguments: mysql username, mysql password and database name.

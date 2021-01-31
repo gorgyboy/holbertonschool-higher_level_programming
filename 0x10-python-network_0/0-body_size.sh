@@ -1,3 +1,3 @@
 #!/bin/bash
 # Shows the size of the response from the server from a given url
-curl -sw " %{size_download}" "$1" | cut -d " " -f3
+curl -sI "$1" | grep Content-Length | cut -d " " -f2

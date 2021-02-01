@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Python Network 0 module'''
 
 
 def find_peak(list_of_integers):

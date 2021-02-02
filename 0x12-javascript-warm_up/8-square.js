@@ -10,7 +10,7 @@ if (isNaN(size)) {
   // Store in squareRow 'size' times 'X' to create the square's row
   let squareRow = '';
   for (indexH = 0; indexH < size; indexH++) {
-    squareRow += 'X'
+    squareRow += 'X';
   }
   // Print squareRow 'size' times
   for (indexV = 0; indexV < size; indexV++) {

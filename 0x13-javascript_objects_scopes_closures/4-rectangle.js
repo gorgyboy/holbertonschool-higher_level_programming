@@ -19,7 +19,7 @@ class Rectangle {
 
   // Exchanges the width and the height of the rectangle.
   rotate () {
-    let temp = this.width;
+    const temp = this.width;
     this.width = this.height;
     this.height = temp;
   }

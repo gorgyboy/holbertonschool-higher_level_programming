@@ -1,7 +1,8 @@
 #!/usr/bin/node
-// Defines a class Rectangle with verified attributes.
+// Defines a class Rectangle.
 
 class Rectangle {
+  // If w and h are not greater than 0, creates an empty object.
   constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;

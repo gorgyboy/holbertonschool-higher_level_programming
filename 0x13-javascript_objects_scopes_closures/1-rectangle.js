@@ -1,7 +1,8 @@
 #!/usr/bin/node
-// Defines a class Rectangle with attributes.
+// Defines a class Rectangle.
 
 class Rectangle {
+  // If w and h are not greater than 0, creates an empty object.
   constructor (w, h) {
     this.width = w;
     this.height = h;

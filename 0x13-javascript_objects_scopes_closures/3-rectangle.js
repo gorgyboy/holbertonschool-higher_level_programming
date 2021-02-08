@@ -1,7 +1,8 @@
 #!/usr/bin/node
-// Defines a class Rectangle with verified attributes and print method.
+// Defines a class Rectangle.
 
 class Rectangle {
+  // If w and h are not greater than 0, creates an empty object.
   constructor (w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
@@ -9,7 +10,7 @@ class Rectangle {
     }
   }
 
-  // Prints the instance with 'X'.
+  // Prints the rectangle using the character 'X'.
   print () {
     for (let h = 0; h < this.height; h++) {
       console.log('X'.repeat(this.width));

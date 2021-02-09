@@ -25,8 +25,3 @@ module, so when using "exports", "module" refers to the current script,
 as said before.
 */
 module.exports = Square;
-
-const s1 = new Square(4);
-s1.charPrint();
-
-s1.charPrint('C');

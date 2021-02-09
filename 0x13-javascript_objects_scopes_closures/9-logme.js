@@ -6,5 +6,5 @@ exports.logMe = (function () {
   return function (item) {
     console.log(`${counter}: ${item}`);
     counter++;
-  }
+  };
 })();

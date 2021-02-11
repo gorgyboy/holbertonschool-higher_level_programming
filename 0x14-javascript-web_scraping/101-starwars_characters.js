@@ -1,4 +1,5 @@
-#!/usr/bin / node
+#!/usr/bin/node
+
 // Prints all characters of a Star Wars movie. Displays one character name by
 // line in the same order of the list “characters” in the /films/ response.
 
